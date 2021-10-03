@@ -25,7 +25,13 @@ public class PlayerController : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             if (Input.touchCount > 0)
-                DoInput(Input.touches[0].position);
+            {
+                Touch touch = Input.touches[0];
+
+                if(touch.phase == TouchPhase.Began)
+                    DoInput(Input.touches[0].position);
+            }    
+
             return;
         }
     }
