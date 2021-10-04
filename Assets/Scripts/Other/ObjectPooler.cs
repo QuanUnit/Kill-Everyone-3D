@@ -24,8 +24,8 @@ public class ObjectPooler : Singleton<ObjectPooler>
             CreateNewPool(sample);
 
         GameObject newGO = pools[sample.GetType()].GetObject();
-        newGO.transform.position = position;
         newGO.transform.SetParent(parent);
+        newGO.transform.position = position;
         newGO.transform.rotation = rotation;
 
         if (newGO.TryGetComponent<IRecovered>(out var obj))
